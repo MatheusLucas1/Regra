@@ -1,5 +1,6 @@
 package com.trybe.java.regraprogressao;
 
+import java.text.DecimalFormat;
 import java.util.Scanner;
 
 
@@ -44,6 +45,37 @@ public class App {
     }
 
     scanner.close();
+    DecimalFormat df = new DecimalFormat("##.#");
+    double calculoDeNota = 0.0f;
+
+    double somaNotas = 0;
+
+    int somaPeso = 0;
+
+    for (int i = 0; i < quantidade; i++) {
+      somaNotas += notasObtidas[i] * pesosAtividades[i];
+      System.out.println(somaNotas);
+    }
+
+    for (int i = 0; i < quantidade; i++) {
+      somaPeso += pesosAtividades[i];
+      System.out.println(somaPeso);
+    }
+
+    calculoDeNota = (double) somaNotas / (somaPeso);
+    calculoDeNota = Double.valueOf(df.format(calculoDeNota).replace(',', '.'));
+
+    System.out.println(calculoDeNota);
+
+    if (calculoDeNota >= 85) {
+      System.out.println("Parabéns! Você alcançou " + calculoDeNota
+          + "%! E temos o prazer de informar que você obteve aprovação!");
+    } else {
+      System.out.println(
+          "Lamentamos informar que, com base na sua pontuação alcançada neste período, "
+              + calculoDeNota
+              + "%, você não atingiu a pontuação mínima necessária para sua aprovação.");
+    }
   }
 
 }
