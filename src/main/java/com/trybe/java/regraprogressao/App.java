@@ -45,7 +45,7 @@ public class App {
     }
 
     scanner.close();
-    DecimalFormat df = new DecimalFormat("##.#");
+    final DecimalFormat df = new DecimalFormat("##.#");
     double calculoDeNota = 0.0f;
 
     double somaNotas = 0;
